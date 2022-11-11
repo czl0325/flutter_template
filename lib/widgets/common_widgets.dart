@@ -63,19 +63,15 @@ class CommonWidgets {
 
   static PreferredSizeWidget topAppBar(
     String title, {
-    double height = DefaultStyles.appBarHeight,
     Brightness brightness = Brightness.light,
-    PreferredSizeWidget? bottom,
     bool centerTitle = true,
     List<Widget>? actions,
   }) {
     return AppBar(
-      toolbarHeight: height + (bottom != null ? bottom.preferredSize.height : 0),
       title: Text(
         title,
         style: TextStyle(fontSize: 18, color: brightness == Brightness.dark ? Colors.white : Colors.black, fontWeight: FontWeight.w500),
       ),
-      bottom: bottom,
       excludeHeaderSemantics: true,
       systemOverlayStyle: brightness == Brightness.light ? SystemUiOverlayStyle.dark : SystemUiOverlayStyle.dark,
       backgroundColor: brightness == Brightness.light ? Colors.white : null,
@@ -91,13 +87,11 @@ class CommonWidgets {
     String title, {
     double height = DefaultStyles.appBarHeight,
     Brightness brightness = Brightness.light,
-    PreferredSizeWidget? bottom,
     bool centerTitle = true,
     Color? backgroundColor,
     List<Widget>? actions,
   }) {
     return AppBar(
-      //toolbarHeight: height + (bottom != null ? bottom.preferredSize.height : 0),
       leading: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () => Global.router?.pop(navigatorKey.currentState!.overlay!.context),
@@ -112,7 +106,6 @@ class CommonWidgets {
       ),
       backgroundColor: backgroundColor ?? (brightness == Brightness.light ? Colors.white : null),
       foregroundColor: brightness == Brightness.light ? Colors.black : Colors.white,
-      bottom: bottom,
       centerTitle: centerTitle,
       elevation: 0,
       actions: actions,

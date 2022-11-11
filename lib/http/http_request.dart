@@ -4,7 +4,7 @@ import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_template/http/xhttp/http_exception.dart';
 import 'package:flutter_template/http/xhttp/http_handler.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_template/utils/toast_utils.dart';
 
 typedef EntityBuilder<T> = T Function(dynamic);
 
@@ -102,7 +102,7 @@ class HttpRequest {
       fail(code, msg);
     } else if (!ObjectUtil.isEmptyString(msg)) {
       LogUtil.d("应用出现错误，code=$code,msg=$msg");
-      Fluttertoast.showToast(msg: msg);
+      ToastUtils.showError(context, msg);
     }
     if (finish != null) {
       finish();
