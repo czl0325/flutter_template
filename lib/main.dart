@@ -7,8 +7,8 @@ import 'utils/global.dart';
 
 void main() {
   RouterManager.initRouter();
-  configLoading();
   runApp(const MyApp());
+  configLoading();
 }
 
 void configLoading() {
@@ -23,7 +23,7 @@ void configLoading() {
     ..indicatorColor = Colors.yellow
     ..textColor = Colors.yellow
     ..maskColor = Colors.blue.withOpacity(0.5)
-    ..userInteractions = true
+    ..userInteractions = false
     ..dismissOnTap = false;
   EasyLoading.init();
 }
@@ -44,6 +44,7 @@ class MyApp extends StatelessWidget {
       ),
       onGenerateRoute: Global.router?.generator,
       home: const LoginPage(),
+      builder: EasyLoading.init(),
     );
   }
 }

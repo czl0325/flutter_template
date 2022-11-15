@@ -1,8 +1,7 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_template/utils/toast_utils.dart';
 import 'package:flutter_template/widgets/common_widgets.dart';
+
+import '../utils/global.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -21,17 +20,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            // Global.router?.navigateTo(context, "/");
-            ToastUtils.showError(context, "错误");
-            // ToastUtils.showProgress(context, "加载中...", seconds);
-            // Timer.periodic(const Duration(seconds: 1), (timer) {
-            //   if (seconds >= 100) {
-            //     timer.cancel(); // 取消重复计时
-            //     return;
-            //   }
-            //   seconds++;
-            //   ToastUtils.showProgress(context, "加载中...", seconds);
-            // });
+            Global.router?.navigateTo(context, "/");
           },
           child: const Text("跳转页面"),
         ),
